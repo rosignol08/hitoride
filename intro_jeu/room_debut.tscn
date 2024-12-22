@@ -1,3 +1,155 @@
-D]
-[connection signal="area_shape_exited" from="Sketchfab_Scene5/Area3D3" to="." method="_on_area_3d_3_area_shape_exited"]
+[gd_scene load_steps=14 format=3 uid="uid://bestungyf4h36"]
+
+[ext_resource type="Script" path="res://intro_jeu/room_debut.gd" id="1_45cdb"]
+[ext_resource type="PackedScene" uid="uid://cify3ag6e7dge" path="res://intro_jeu/perso_intro.tscn" id="2_p5cmk"]
+[ext_resource type="PackedScene" uid="uid://ctooxhn3neybc" path="res://intro_jeu/room_grand.tscn" id="3_ur1ac"]
+[ext_resource type="PackedScene" uid="uid://cymfor0pdtrse" path="res://intro_jeu/sketchfab_scene_tv.tscn" id="4_q2uy4"]
+[ext_resource type="PackedScene" uid="uid://cxpwrcus4eytu" path="res://objet_3d/intro_3d/maison/door_with_frame.glb" id="5_emuy7"]
+[ext_resource type="AudioStream" uid="uid://bxk5bxunmug73" path="res://song/Door_knocking.mp3" id="6_one11"]
+[ext_resource type="AudioStream" uid="uid://doooforrm6up8" path="res://song/Door_Opening.mp3" id="7_os3rt"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ln8e5"]
+size = Vector3(3.67444, 2.49303, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_d8orp"]
+size = Vector3(1.58917, 3.46152, 0.178833)
+
+[sub_resource type="Animation" id="Animation_6bw0m"]
+resource_name = "rapproche_tele"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.439, 1.99, -3.025), Vector3(-1.4, 1.79, 1.595)]
+}
+
+[sub_resource type="Animation" id="Animation_poibs"]
+resource_name = "fondue"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/CanvasLayer2/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n5wnv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.439, 1.99, 0.855)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_84swo"]
+_data = {
+"RESET": SubResource("Animation_n5wnv"),
+"fondue": SubResource("Animation_poibs"),
+"rapproche_tele": SubResource("Animation_6bw0m")
+}
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_45cdb")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("2_p5cmk")]
+transform = Transform3D(1.5, 0, 0, 0, 1.795, 0, 0, 0, 1.5, 1.73093, 1.52423, 0)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.225, 0, 0, 0, 0.225, 0, 0, 0, 0.225, 1.97045, 1.55001, 5.70036)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "E"
+font_size = 900
+
+[node name="Label3D2" type="Label3D" parent="."]
+transform = Transform3D(0.3, 0, 0, 0, 0.3, 0, 0, 0, 0.3, -1.43263, 1.91412, 2.46954)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "E"
+font_size = 900
+
+[node name="Area3D3" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57001, 0.842422, 2.77281)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169128, 0.359276, 0)
+shape = SubResource("BoxShape3D_ln8e5")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.30514, 0.842422, 5.26255)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0405579, 0.878799, 0.410583)
+shape = SubResource("BoxShape3D_d8orp")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.999976, 0, 0.00698123, 0, 1, 0, -0.00698123, 0, -0.999976, -1.439, 1.99, 0.855)
+fov = 59.5
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="Camera3D"]
+
+[node name="ColorRect" type="ColorRect" parent="Camera3D/CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_84swo")
+}
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("3_ur1ac")]
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("4_q2uy4")]
+transform = Transform3D(4.63376e-05, 0, 0.00499979, 0, 0.005, 0, -0.00499979, 0, 4.63376e-05, -1.40121, 0.450186, 2.70418)
+
+[node name="Sketchfab_Scene3" parent="." instance=ExtResource("5_emuy7")]
+transform = Transform3D(-0.018, 0, 1.57361e-09, 0, 0.018, 0, -1.57361e-09, 0, -0.018, 2.27143, -0.114546, 5.98708)
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.20708, 1.77169, 5.41155)
+stream = ExtResource("6_one11")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_os3rt")
+volume_db = -10.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="area_shape_entered" from="Area3D3" to="." method="_on_area_3d_3_area_shape_entered"]
+[connection signal="area_shape_exited" from="Area3D3" to="." method="_on_area_3d_3_area_shape_exited"]
+[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="area_shape_exited" from="Area3D" to="." method="_on_area_3d_area_shape_exited"]

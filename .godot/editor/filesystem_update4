@@ -4,3 +4,9 @@ res://porte_face.tscn
 res://objet_3d/maison/porte_dossier/porte.tscn
 res://intro_jeu/couloir_scene.gd
 res://intro_jeu/couloir_scene.tscn
+res://perso.tscn
+res://intro_jeu/room_grand.tscn
+res://intro_jeu/perso_intro.tscn
+res://pause.tscn
+res://intro_jeu/room_debut.gd
+res://intro_jeu/room_debut.tscn

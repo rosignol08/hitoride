@@ -9,7 +9,7 @@ func _ready():
 	$Label3D.hide()
 	prenable = false
 	ramasse_cassette = false
-	$AnimationPlayer.play("RESET")
+	$CharacterBody3D/AnimationPlayer.play("ouverte")
 	if Globale.a_cassette == true:
 		$Sketchfab_Scene2.hide()
 
@@ -24,11 +24,11 @@ func _process(_delta):
 			$Sketchfab_Scene2.hide()
 			Globale.a_cassette = true
 	if entree:
-		if Input.is_action_just_pressed("E") and boolen_porte == false:
+		if Input.is_action_just_pressed("E") and Globale.a_cassette == true:
 			boolen_porte = true
 			preload("res://intro_jeu/room_debut.tscn")
 			$AudioStreamPlayer.play()
-			$AnimationPlayer.play("porte_ferme")
+			$CharacterBody3D/AnimationPlayer.play("porte_ferme")
 
 
 func _on_area_3d_area_shape_entered(_area_rid, _area, _area_shape_index, _local_shape_index):
@@ -40,8 +40,6 @@ func _on_area_3d_2_area_shape_entered(_area_rid, _area, _area_shape_index, _loca
 	if ramasse_cassette:
 		$Label3D.show()
 		entree = true
-		
-
 
 func _on_area_3d_area_shape_exited(_area_rid, _area, _area_shape_index, _local_shape_index):
 	$Sketchfab_Scene2/Label3D.hide()

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cjkp4gumt5c1k"]
 
-[ext_resource type="PackedScene" path="res://objet_3d/intro_3d/maison/infinite_corridor.glb" id="1_lmr72"]
+[ext_resource type="PackedScene" uid="uid://cowd8lg6teube" path="res://objet_3d/intro_3d/maison/infinite_corridor.glb" id="1_lmr72"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_gf8jh"]
 size = Vector3(28.0946, 4.74866, 0.332031)
@@ -33,6 +33,7 @@ shape = SubResource("BoxShape3D_rb8qj")
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_5" index="0"]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_5/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.532215, 0)
 shape = SubResource("ConvexPolygonShape3D_4eowq")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Plane_2/Object_9" index="0"]

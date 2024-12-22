@@ -1,5 +1,9 @@
+AudioStreamPlayer
+AudioStreamPlayer3D
+AnimationPlayer
+Camera3D
 CollisionShape3D
 Area3D
-AudioStreamPlayer
-AnimationPlayer
+Label3D
+Timer
 SpotLight3D
