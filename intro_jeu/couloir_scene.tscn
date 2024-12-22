@@ -91,7 +91,7 @@ font_size = 900
 [node name="Sketchfab_Scene" parent="." instance=ExtResource("1_2xlyf")]
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("3_o3s7r")]
-transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.65032, 1.69153, -0.93494)
+transform = Transform3D(1.5, 0, 0, 0, 1.5, 0, 0, 0, 1.5, -1.65032, 1.229, -0.93494)
 
 [node name="Sketchfab_Scene2" parent="." instance=ExtResource("4_fmr50")]
 transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0330827, 0.700358)

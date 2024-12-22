@@ -14,6 +14,7 @@ var boolen_porte = false
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	print("dounia",Globale.a_cassette)
 	if entree:
 		if Input.is_action_just_pressed("E") and boolen_porte == false:
 			boolen_porte = true
