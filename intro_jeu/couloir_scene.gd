@@ -5,11 +5,15 @@ var ramasse_cassette = false
 var entree = false
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$CharacterBody3D/Camera3D2.make_current()
 	$Sketchfab_Scene2/Label3D.hide()
 	$Label3D.hide()
 	prenable = false
 	ramasse_cassette = false
-	$CharacterBody3D/AnimationPlayer.play("ouverte")
+	#var couleur = Vector4(0,0,0.647,0.761)
+	#$CanvasLayer2/ColorRect.color = couleur
+	$AnimationPlayer.play("ouverte")
+	print("ouvre")
 	if Globale.a_cassette == true:
 		$Sketchfab_Scene2.hide()
 
@@ -28,7 +32,7 @@ func _process(_delta):
 			boolen_porte = true
 			preload("res://intro_jeu/room_debut.tscn")
 			$AudioStreamPlayer.play()
-			$CharacterBody3D/AnimationPlayer.play("porte_ferme")
+			$AnimationPlayer.play("porte_ferme")
 
 
 func _on_area_3d_area_shape_entered(_area_rid, _area, _area_shape_index, _local_shape_index):

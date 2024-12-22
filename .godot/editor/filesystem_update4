@@ -10,3 +10,10 @@ res://intro_jeu/perso_intro.tscn
 res://pause.tscn
 res://intro_jeu/room_debut.gd
 res://intro_jeu/room_debut.tscn
+res://intro_perso.gd
+res://objet_3d/objets/bougie/bougie_1.tscn
+res://sol_tile.tres
+res://objet_3d/objets/bougie/bougie_1.gd
+res://intro_jeu/ecrant_debut.tscn
+res://compress.gdshader
+res://ecrant_debut.gd

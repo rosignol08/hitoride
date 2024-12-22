@@ -16,6 +16,7 @@ var dico_truc_a_dire = ["on m as dit de visiter cette foret le matin "]
 func _ready():
 	# Initialiser la position précédente à la position actuelle
 	previous_position = global_transform.origin
+	Globale.a_cassette = false
 
 func affiche_conseil(label: Label):
 	if peut_afficher_consei_bougie:

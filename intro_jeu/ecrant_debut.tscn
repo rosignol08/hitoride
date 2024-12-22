@@ -1,23 +1,71 @@
-[gd_scene load_steps=6 format=3 uid="uid://nto66u5gcoyo"]
+[gd_scene load_steps=11 format=3 uid="uid://nto66u5gcoyo"]
 
 [ext_resource type="Script" path="res://ecrant_debut.gd" id="1_e1bku"]
-[ext_resource type="PackedScene" uid="uid://bvprcognyob1q" path="res://objet_3d/intro_3d/maison/retro_vhs_tape_game_ready.glb" id="2_i2t3o"]
-[ext_resource type="FontFile" uid="uid://dg5ugftyst7sq" path="res://ecrit/RealVhsFontRegular-WyV0z.ttf" id="3_kkghq"]
+[ext_resource type="PackedScene" uid="uid://cf2v43s5xu6vt" path="res://objet_3d/intro_3d/maison/retro_vhs_tape_game_ready.glb" id="2_i2t3o"]
+[ext_resource type="Shader" path="res://compress.gdshader" id="2_l223j"]
+[ext_resource type="FontFile" uid="uid://cnpvv0tkma811" path="res://ecrit/RealVhsFontRegular-WyV0z.ttf" id="3_kkghq"]
 [ext_resource type="PackedScene" uid="uid://csfw764nuny0w" path="res://objet_3d/objets/bougie/bougie_1.tscn" id="4_0yolb"]
 [ext_resource type="MeshLibrary" uid="uid://bg6tmltbf73jh" path="res://sol_tile.tres" id="4_3l2ly"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_0khed"]
+frequency = 0.4758
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_m8ns8"]
+width = 150
+height = 150
+noise = SubResource("FastNoiseLite_0khed")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_1t7us"]
+shader = ExtResource("2_l223j")
+shader_parameter/vhs_resolution = Vector2(256, 144)
+shader_parameter/rgb_shift = Vector3(0.003, 0.002, -0.003)
+shader_parameter/samples = 3
+shader_parameter/crease_noise = 2.0
+shader_parameter/crease_opacity = 1.0
+shader_parameter/filter_intensity = 1.0
+shader_parameter/tape_crease_smear = 1.1
+shader_parameter/tape_crease_intensity = 0.6
+shader_parameter/tape_crease_jitter = 0.23
+shader_parameter/tape_crease_speed = 0.5
+shader_parameter/tape_crease_discoloration = 2.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.8
+shader_parameter/blur_direction = Vector2(1, 0)
+shader_parameter/blur_intensity = 5.3
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_m8ns8")
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_yh8xp"]
+exposure_multiplier = 4.0
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_e1bku")
 
-[node name="Control" type="Control" parent="."]
-layout_mode = 3
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_1t7us")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="Control" type="Control" parent="CanvasLayer/ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/ColorRect/Control"]
 layout_mode = 1
 anchors_preset = 14
 anchor_top = 0.5
@@ -28,21 +76,21 @@ offset_bottom = 80.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Button" type="Button" parent="Control/VBoxContainer"]
+[node name="Button" type="Button" parent="CanvasLayer/ColorRect/Control/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_kkghq")
 theme_override_font_sizes/font_size = 64
 text = "JOUER"
 flat = true
 
-[node name="Button2" type="Button" parent="Control/VBoxContainer"]
+[node name="Button2" type="Button" parent="CanvasLayer/ColorRect/Control/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_kkghq")
 theme_override_font_sizes/font_size = 64
 text = "CREDITS"
 flat = true
 
-[node name="Button3" type="Button" parent="Control/VBoxContainer"]
+[node name="Button3" type="Button" parent="CanvasLayer/ColorRect/Control/VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_kkghq")
 theme_override_font_sizes/font_size = 64
@@ -66,6 +114,9 @@ data = {
 "cells": PackedInt32Array(65535, 0, 0, 0, 0, 0, 65535, 65534, 0, 0, 65534, 0, 1, 65535, 0, 1, 0, 0, 0, 1, 0, 65535, 1, 0, 65534, 0, 0, 65534, 65535, 0, 65534, 65534, 0, 1, 65534, 0, 1, 1, 0, 65534, 1, 0, 65535, 65535, 0, 0, 65535, 0)
 }
 
-[connection signal="pressed" from="Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
-[connection signal="pressed" from="Control/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+camera_attributes = SubResource("CameraAttributesPractical_yh8xp")
+
+[connection signal="pressed" from="CanvasLayer/ColorRect/Control/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Control/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/Control/VBoxContainer/Button3" to="." method="_on_button_3_pressed"]

@@ -9,7 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://doooforrm6up8" path="res://song/Door_Opening.mp3" id="7_os3rt"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ln8e5"]
-size = Vector3(3.67444, 2.49303, 1)
+size = Vector3(4.38632, 2.49303, 1.5675)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_d8orp"]
 size = Vector3(1.58917, 3.46152, 0.178833)
@@ -35,7 +35,7 @@ resource_name = "fondue"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/CanvasLayer2/ColorRect:color")
+tracks/0/path = NodePath("CanvasLayer2/ColorRect:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -68,7 +68,21 @@ _data = {
 }
 
 [node name="Node3D" type="Node3D"]
+process_mode = 1
 script = ExtResource("1_45cdb")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
 
 [node name="CharacterBody3D" parent="." instance=ExtResource("2_p5cmk")]
 transform = Transform3D(1.5, 0, 0, 0, 1.795, 0, 0, 0, 1.5, 1.73093, 1.52423, 0)
@@ -99,7 +113,7 @@ font_size = 900
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.57001, 0.842422, 2.77281)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.169128, 0.359276, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.126236, 0.359276, -0.0248413)
 shape = SubResource("BoxShape3D_ln8e5")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -112,19 +126,6 @@ shape = SubResource("BoxShape3D_d8orp")
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-0.999976, 0, 0.00698123, 0, 1, 0, -0.00698123, 0, -0.999976, -1.439, 1.99, 0.855)
 fov = 59.5
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="Camera3D"]
-
-[node name="ColorRect" type="ColorRect" parent="Camera3D/CanvasLayer2"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -1.0
-offset_right = -1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 1, 0)
-metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -153,3 +154,4 @@ volume_db = -10.0
 [connection signal="area_shape_exited" from="Area3D3" to="." method="_on_area_3d_3_area_shape_exited"]
 [connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
 [connection signal="area_shape_exited" from="Area3D" to="." method="_on_area_3d_area_shape_exited"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
