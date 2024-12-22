@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4gve3gd4icx0"]
+
+[ext_resource type="PackedScene" uid="uid://bflyadi44wndt" path="res://objet_3d/dehors/foret/arbree.fbx" id="1_vjehv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_6h1qu"]
+radius = 0.213
+height = 15.0
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Root Scene" parent="StaticBody3D" instance=ExtResource("1_vjehv")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.40376, 0)
+shape = SubResource("CapsuleShape3D_6h1qu")

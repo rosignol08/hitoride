@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctty723pnop3t"]
+
+[ext_resource type="Script" path="res://manequin_anime.gd" id="1_1ekkk"]
+[ext_resource type="PackedScene" uid="uid://4dgbflean3dj" path="res://manequin_anime.tscn" id="2_ep0ue"]
+[ext_resource type="AudioStream" uid="uid://btlgeiqvjp6re" path="res://song/Evil Whisper Sound Effect.mp3" id="3_smrrl"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nyq6w"]
+radius = 0.162644
+height = 1.41737
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+script = ExtResource("1_1ekkk")
+
+[node name="Root Scene" parent="." instance=ExtResource("2_ep0ue")]
+transform = Transform3D(-2, 0, -3.01992e-07, 0, 2, 0, 3.01992e-07, 0, -2, 0, 0, 0)
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.379226, 0)
+aabb = AABB(-0.42052, -0.35259, -0.256394, 0.841041, 1.44835, 0.512789)
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("3_smrrl")
+max_distance = 5.0
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.726923, 0)
+shape = SubResource("CapsuleShape3D_nyq6w")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.726923, 0)
+shape = SubResource("CapsuleShape3D_nyq6w")
+
+[connection signal="screen_entered" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]
+[connection signal="finished" from="AudioStreamPlayer3D" to="." method="_on_audio_stream_player_3d_finished"]

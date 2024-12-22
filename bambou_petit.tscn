@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvho6jkgc5cxo"]
+
+[ext_resource type="PackedScene" uid="uid://rub17gscsykw" path="res://objet_3d/dehors/arbre/bambou_petit/bamb_petit1.fbx" id="1_dbcxa"]
+
+[node name="Root Scene" instance=ExtResource("1_dbcxa")]
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(20, 0, 0, 0, 20, 0, 0, 0, 20, 0, 0, 6.51163)
+
+[node name="Sans_titre" parent="RootNode" index="0"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, -0.599441, -0.714557, -10.2845)

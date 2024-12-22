@@ -1,0 +1,5 @@
+﻿newmtl M_MJH_Floor_A_01
+	map_Kd M_MJH_Floor_A_01_D.bmp
+	map_Ks M_MJH_Floor_A_01_S.bmp
+	bump M_MJH_Floor_A_01_N.bmp
+

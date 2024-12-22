@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cymfor0pdtrse"]
+
+[ext_resource type="PackedScene" uid="uid://defyghv5644as" path="res://objet_3d/intro_3d/maison/modern_entertainment_center_free.glb" id="1_nid3h"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_52mcd"]
+size = Vector3(162.983, 732.75, 199.905)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_nid3h")]
+transform = Transform3D(0.005, 0, 0, 0, 0.005, 0, 0, 0, 0.005, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/5836d5dd2aa14c29a482c9966515dc07_fbx/RootNode/Cube_003/Cube_003_Stand_0" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/5836d5dd2aa14c29a482c9966515dc07_fbx/RootNode/Cube_003/Cube_003_Stand_0/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.13829e-11, 0, -1.13829e-11, 1, 0.34589, -0.123742, -0.12822)
+shape = SubResource("BoxShape3D_52mcd")

@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://d3ol7phkupnoy"
+path="res://.godot/imported/Mask.obj-c726d6426bb613164fbccacc1ea9bdbc.mesh"
+
+[deps]
+
+files=["res://.godot/imported/Mask.obj-c726d6426bb613164fbccacc1ea9bdbc.mesh"]
+
+source_file="res://objet_3d/enemy/Mask.obj"
+dest_files=["res://.godot/imported/Mask.obj-c726d6426bb613164fbccacc1ea9bdbc.mesh", "res://.godot/imported/Mask.obj-c726d6426bb613164fbccacc1ea9bdbc.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

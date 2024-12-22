@@ -1,0 +1,38 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqqcbugw58fhp"]
+
+[ext_resource type="Texture2D" uid="uid://de3bgwf7mewj4" path="res://textures/Tatami004_1K-JPG/Tatami004_1K-JPG_Color.jpg" id="1_4pshe"]
+[ext_resource type="Texture2D" uid="uid://cmdq73h6b7yku" path="res://textures/Tatami004_1K-JPG/Tatami004_1K-JPG_AmbientOcclusion.jpg" id="2_5k6sl"]
+[ext_resource type="Texture2D" uid="uid://cp5nhwopcr1me" path="res://textures/Tatami004_1K-JPG/Tatami004_1K-JPG_Displacement.jpg" id="3_ndgdg"]
+[ext_resource type="Texture2D" uid="uid://dtb0r8xnnv6mq" path="res://textures/Tatami004_1K-JPG/Tatami004_1K-JPG_NormalGL.jpg" id="4_1hvft"]
+[ext_resource type="Texture2D" uid="uid://78g8y2s0inu0" path="res://textures/Tatami004_1K-JPG/Tatami004_1K-JPG_Roughness.jpg" id="5_t6kb4"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66yfk"]
+albedo_texture = ExtResource("1_4pshe")
+roughness_texture = ExtResource("5_t6kb4")
+normal_enabled = true
+normal_scale = 5.24
+normal_texture = ExtResource("4_1hvft")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_5k6sl")
+heightmap_scale = 1.361
+heightmap_texture = ExtResource("3_ndgdg")
+subsurf_scatter_texture = ExtResource("3_ndgdg")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5shw2"]
+material = SubResource("StandardMaterial3D_66yfk")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_egqp5"]
+size = Vector3(2, 0.00123596, 2)
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_5shw2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.49521e-07, -9.11191e-05, -1.18028e-06)
+shape = SubResource("BoxShape3D_egqp5")

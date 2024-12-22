@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv5e0iemnwxiq"]
+
+[ext_resource type="PackedScene" uid="uid://omr7ia4nm5dx" path="res://objet_3d/dehors/arbre/bambou_moyen/bamboo.fbx" id="1_0ff7s"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ohouu"]
+height = 0.169557
+radius = 0.00158041
+
+[node name="Root Scene" instance=ExtResource("1_0ff7s")]
+
+[node name="RootNode" parent="." index="0"]
+transform = Transform3D(20, 0, 0, 0, 46.53, 0, 0, 0, 20, 0, 0, 0)
+
+[node name="Sans_titre" parent="RootNode" index="0"]
+transform = Transform3D(100, 0, 0, 0, 50, 0, 0, 0, 100, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RootNode/Sans_titre" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RootNode/Sans_titre/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0838934, 0.000951385)
+shape = SubResource("CylinderShape3D_ohouu")

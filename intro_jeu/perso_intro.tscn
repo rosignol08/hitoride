@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://cify3ag6e7dge"]
+
+[ext_resource type="Script" path="res://intro_perso.gd" id="1_j4r4c"]
+[ext_resource type="Script" path="res://camera.gd" id="2_e7fu3"]
+[ext_resource type="PackedScene" uid="uid://banqphrx6mwiq" path="res://pause.tscn" id="4_7ygvg"]
+[ext_resource type="AudioStream" uid="uid://b4heucpavh8ll" path="res://song/marche_son.wav" id="5_7nhuj"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_obhrw"]
+radius = 0.285354
+height = 1.6
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+process_mode = 1
+script = ExtResource("1_j4r4c")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_obhrw")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_obhrw")
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+process_mode = 3
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.35834, 0)
+current = true
+far = 50.0
+script = ExtResource("2_e7fu3")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_7nhuj")
+volume_db = -25.0
+pitch_scale = 0.7
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="pause" parent="CanvasLayer/ColorRect" instance=ExtResource("4_7ygvg")]
+layout_mode = 1
+offset_left = 1.0
+offset_right = 1.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://lapyqcx1q6i8"]
+
+[ext_resource type="Script" path="res://masque_objectif.gd" id="1_hcebt"]
+[ext_resource type="PackedScene" uid="uid://cgkfqsmfh3kj3" path="res://objet_3d/maison/objectifs/japanese_tengu_mask.glb" id="2_eahjg"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iwkn3"]
+radius = 0.530606
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_hcebt")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_eahjg")]
+transform = Transform3D(2, 0, 0, 0, -8.74228e-08, 2, 0, -2, -8.74228e-08, 0, -5.93448e-09, -0.135765)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_iwkn3")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0108509, 0.582512, -0.0377606)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "E"
+font_size = 150
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

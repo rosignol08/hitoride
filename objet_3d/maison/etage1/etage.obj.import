@@ -1,0 +1,22 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://ds2bedb0fseb2"
+path="res://.godot/imported/etage.obj-f9b4c6c58c1ad38cc2d342d8952559d5.mesh"
+
+[deps]
+
+files=["res://.godot/imported/etage.obj-f9b4c6c58c1ad38cc2d342d8952559d5.mesh"]
+
+source_file="res://objet_3d/maison/etage1/etage.obj"
+dest_files=["res://.godot/imported/etage.obj-f9b4c6c58c1ad38cc2d342d8952559d5.mesh", "res://.godot/imported/etage.obj-f9b4c6c58c1ad38cc2d342d8952559d5.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true
+force_disable_mesh_compression=false

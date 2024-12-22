@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsupok5f73aqo"]
+
+[ext_resource type="PackedScene" uid="uid://7j3k4052ekkr" path="res://objet_3d/objets/mobilier/cuisine/old_kitchen_shelf.glb" id="1_fa5sc"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ci6g8"]
+points = PackedVector3Array(-3.09239, -0.0522184, 1.14498, 3.08199, 1.0087, 0.163265, 2.95839, 0.968151, -0.0969621, 3.19228, -1.04968, 0.147764, -2.94998, -0.970152, -0.0949668, -2.95849, 0.968151, -0.0969621, 2.92108, 0.986898, 1.3032, -2.92118, 0.986898, 1.3032, 3.09229, 0.147068, 1.24473, 2.94988, -0.970152, -0.0949668, -3.19238, -1.04968, 0.147764, -3.09239, 0.446407, 1.34462, -3.08209, 1.0087, 0.163265, 3.09229, -0.0522184, 1.14498, 3.09229, 0.446407, 1.34462, -3.09239, 0.147068, 1.24473)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_fa5sc")]
+transform = Transform3D(0.002, 0, 0, 0, 0.002, 0, 0, 0, 0.002, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/55321839a96149d684b6043195bc91c5_fbx/RootNode/shelf_low/shelf_low_Material_0" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/55321839a96149d684b6043195bc91c5_fbx/RootNode/shelf_low/shelf_low_Material_0/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_ci6g8")

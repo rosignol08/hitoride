@@ -1,0 +1,35 @@
+[gd_scene load_steps=8 format=3 uid="uid://ca4eg8a641yce"]
+
+[ext_resource type="Script" path="res://OmniLight3D.gd" id="1_awbxy"]
+
+[sub_resource type="Gradient" id="Gradient_1jxqk"]
+offsets = PackedFloat32Array(0.0833333, 0.595833, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.780488, 0.780488, 0.780488, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_wd2br"]
+frequency = 0.1484
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_w62k4"]
+color_ramp = SubResource("Gradient_1jxqk")
+noise = SubResource("FastNoiseLite_wd2br")
+
+[sub_resource type="Gradient" id="Gradient_prhb4"]
+offsets = PackedFloat32Array(0.220833, 0.4625, 0.675)
+colors = PackedColorArray(0, 0, 0, 1, 0.314917, 0.314917, 0.314917, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5u8ig"]
+noise_type = 0
+frequency = 0.2458
+
+[sub_resource type="NoiseTexture3D" id="NoiseTexture3D_m5ktp"]
+color_ramp = SubResource("Gradient_prhb4")
+noise = SubResource("FastNoiseLite_5u8ig")
+
+[node name="OmniLight3D" type="OmniLight3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.210961, 0.0312407)
+light_color = Color(0.764706, 0.564706, 0.262745, 1)
+shadow_enabled = true
+omni_range = 3.78248
+script = ExtResource("1_awbxy")
+noise = SubResource("NoiseTexture3D_w62k4")
+noise2 = SubResource("NoiseTexture3D_m5ktp")

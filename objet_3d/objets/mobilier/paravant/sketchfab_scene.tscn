@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh5y1ylke4yqy"]
+
+[ext_resource type="PackedScene" uid="uid://dy1ahfhxpnw61" path="res://objet_3d/objets/mobilier/paravant/japanese_screen_divider_game_ready_asset.glb" id="1_5q8py"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ojlee"]
+points = PackedVector3Array(127.665, 203.437, -15.3749, 127.665, -2.75491, -15.3749, -66.8332, 203.437, -58.155, -117.426, 203.437, 7.97215, 53.726, -2.75491, -62.0553, -109.627, -2.75491, 7.97215, 68.3568, 196.342, -59.6458, -66.8332, -2.75491, -58.155, 123.766, -2.75491, -3.70138, 123.766, 203.437, -3.70138, -115.425, 2.11144, -4.80309, 53.726, 203.437, -62.0553, -115.426, 198.572, -4.80288, 68.3568, 4.33982, -59.6458, -117.426, -2.75491, 7.97215, -109.627, 203.437, 7.97215)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_5q8py")]
+transform = Transform3D(0.01, 0, 0, 0, 0.01, 0, 0, 0, 0.01, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/Collada visual scene group/Cube_006/defaultMaterial" index="0"]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/Collada visual scene group/Cube_006/defaultMaterial/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_ojlee")

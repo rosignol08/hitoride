@@ -1,0 +1,89 @@
+[gd_scene load_steps=9 format=3 uid="uid://ct7qv7ctu8r42"]
+
+[ext_resource type="Shader" path="res://compress.gdshader" id="1_dfwwv"]
+[ext_resource type="Script" path="res://ecrant_mort.gd" id="1_puvxn"]
+[ext_resource type="Texture2D" uid="uid://cx6f4etp5qw3" path="res://textures/bleu_fonce.png" id="2_72h8y"]
+[ext_resource type="FontFile" uid="uid://dg5ugftyst7sq" path="res://ecrit/RealVhsFontRegular-WyV0z.ttf" id="2_qrqda"]
+[ext_resource type="AudioStream" uid="uid://bmjkb8tipk6dk" path="res://song/son_ariere_mort.mp3" id="4_pkxgq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_iruyi"]
+frequency = 0.4758
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_46276"]
+width = 150
+height = 150
+noise = SubResource("FastNoiseLite_iruyi")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rugg8"]
+shader = ExtResource("1_dfwwv")
+shader_parameter/vhs_resolution = Vector2(256, 144)
+shader_parameter/rgb_shift = Vector3(0.003, 0.002, -0.003)
+shader_parameter/samples = 3
+shader_parameter/crease_noise = 2.0
+shader_parameter/crease_opacity = 1.0
+shader_parameter/filter_intensity = 1.0
+shader_parameter/tape_crease_smear = 1.1
+shader_parameter/tape_crease_intensity = 0.6
+shader_parameter/tape_crease_jitter = 0.23
+shader_parameter/tape_crease_speed = 0.5
+shader_parameter/tape_crease_discoloration = 2.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.8
+shader_parameter/blur_direction = Vector2(1, 0)
+shader_parameter/blur_intensity = 5.3
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_46276")
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_puvxn")
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="fond" type="Sprite2D" parent="CanvasLayer2"]
+position = Vector2(632.5, 359.5)
+scale = Vector2(3.06527, 2.44904)
+texture = ExtResource("2_72h8y")
+
+[node name="Label" type="Label" parent="CanvasLayer2"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("2_qrqda")
+theme_override_font_sizes/font_size = 45
+text = "Si tu plonges longtemps ton regard dans l abime, l abime te regarde aussi.\\n-Friedrich Nietzsche"
+justification_flags = 161
+uppercase = true
+metadata/_edit_use_anchors_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_rugg8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pkxgq")
+volume_db = 18.0
+pitch_scale = 0.6
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

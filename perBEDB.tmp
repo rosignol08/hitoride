@@ -1,0 +1,219 @@
+[gd_scene load_steps=22 format=3 uid="uid://ch00kxsi6fdv0"]
+
+[ext_resource type="Script" path="res://perso.gd" id="1_nkfew"]
+[ext_resource type="Script" path="res://camera.gd" id="2_wbtus"]
+[ext_resource type="PackedScene" uid="uid://banqphrx6mwiq" path="res://pause.tscn" id="3_243dg"]
+[ext_resource type="PackedScene" uid="uid://rnfxd7a0u8lo" path="res://camera_interf/interaface_camera.tscn" id="3_x7wqt"]
+[ext_resource type="Shader" path="res://compress.gdshader" id="4_ldhwy"]
+[ext_resource type="Texture2D" uid="uid://2acfhw4lt3s5" path="res://icon.svg" id="5_vn8jj"]
+[ext_resource type="PackedScene" uid="uid://cawffaxhm2h3h" path="res://objet_3d/objets/bougie/sketchfab_scene.tscn" id="8_a2bh6"]
+[ext_resource type="PackedScene" uid="uid://ca4eg8a641yce" path="res://lumiere_bouge.tscn" id="9_3tfj7"]
+[ext_resource type="PackedScene" uid="uid://cxcgk3l8tvhbh" path="res://herbe/grass_mover.tscn" id="9_el5sg"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_d3t5y"]
+frequency = 1.0
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_s3ylc"]
+noise = SubResource("FastNoiseLite_d3t5y")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_avuqg"]
+shader = ExtResource("4_ldhwy")
+shader_parameter/vhs_resolution = Vector2(256, 144)
+shader_parameter/rgb_shift = Vector3(0, 0, 0)
+shader_parameter/samples = 2
+shader_parameter/crease_noise = 1.0
+shader_parameter/crease_opacity = 0.5
+shader_parameter/filter_intensity = 0.1
+shader_parameter/tape_crease_smear = 1.1
+shader_parameter/tape_crease_intensity = 0.0
+shader_parameter/tape_crease_jitter = 0.23
+shader_parameter/tape_crease_speed = 0.5
+shader_parameter/tape_crease_discoloration = 2.0
+shader_parameter/bottom_border_thickness = 6.0
+shader_parameter/bottom_border_jitter = 6.0
+shader_parameter/noise_intensity = 0.1
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_s3ylc")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_nlyf8"]
+radius = 0.351632
+height = 1.6
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jx05b"]
+radius = 0.18
+height = 0.785
+
+[sub_resource type="Gradient" id="Gradient_tioxa"]
+offsets = PackedFloat32Array(0, 0.991935, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.523564, 0.275795, 0.0841993, 1, 0.954734, 0.50292, 0.15354, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_jm4ej"]
+gradient = SubResource("Gradient_tioxa")
+
+[sub_resource type="Curve" id="Curve_qnfpu"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.302632, 0.56044), -0.569431, -0.569431, 0, 0, Vector2(1, 0.406593), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_4b8xt"]
+curve = SubResource("Curve_qnfpu")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_rjveh"]
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.5
+angular_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 1.0
+linear_accel_max = 5.0
+scale_min = 0.01
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_4b8xt")
+color_initial_ramp = SubResource("GradientTexture1D_jm4ej")
+hue_variation_max = 0.4
+turbulence_enabled = true
+turbulence_noise_strength = 5.0
+turbulence_noise_scale = 1.705
+turbulence_noise_speed_random = 0.1
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pdeel"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.482768, 0.23224, 2.40654e-07, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_8n65g"]
+material = SubResource("StandardMaterial3D_pdeel")
+
+[node name="CharacterBody3D" type="CharacterBody3D"]
+process_mode = 1
+script = ExtResource("1_nkfew")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+process_mode = 3
+layer = 0
+
+[node name="Label_bougie" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 86
+text = "R = equip"
+
+[node name="Label_courrir" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 86
+text = "shift = +vite"
+
+[node name="Control" parent="." instance=ExtResource("3_x7wqt")]
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+material = SubResource("ShaderMaterial_avuqg")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="pause" parent="CanvasLayer2/ColorRect" instance=ExtResource("3_243dg")]
+layout_mode = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("CapsuleShape3D_nlyf8")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_nlyf8")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CollisionShape3D3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.336592, 0)
+visible = false
+mesh = SubResource("CapsuleMesh_jx05b")
+
+[node name="Camera3D2" type="Camera3D" parent="."]
+process_mode = 3
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0.35834, 0)
+far = 50.0
+script = ExtResource("2_wbtus")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.287642)
+shadow_enabled = true
+spot_range = 20.0
+spot_attenuation = 1.36604
+spot_angle = 29.4677
+spot_angle_attenuation = 1.86607
+
+[node name="AnimatableBody3D" type="AnimatableBody3D" parent="Camera3D2"]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -0.0266827, -1.21419, -0.333769)
+
+[node name="Sketchfab_Scene2" parent="Camera3D2/AnimatableBody3D" instance=ExtResource("8_a2bh6")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 1.20598, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Camera3D2/AnimatableBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.831, 0)
+amount = 50
+lifetime = 0.2
+randomness = 1.0
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_rjveh")
+draw_pass_1 = SubResource("QuadMesh_8n65g")
+
+[node name="OmniLight3D" parent="Camera3D2/AnimatableBody3D" instance=ExtResource("9_3tfj7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.017, 0)
+
+[node name="Icon" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-282, 172)
+scale = Vector2(1, 9.57813)
+texture = ExtResource("5_vn8jj")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Node3D" parent="." instance=ExtResource("9_el5sg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.805956, 0)
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

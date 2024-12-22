@@ -1,0 +1,112 @@
+[gd_scene load_steps=10 format=3 uid="uid://chdlwgr2y8mwl"]
+
+[ext_resource type="PackedScene" uid="uid://cjkp4gumt5c1k" path="res://intro_jeu/couloir.tscn" id="1_2xlyf"]
+[ext_resource type="Script" path="res://intro_jeu/couloir_scene.gd" id="1_rlmys"]
+[ext_resource type="PackedScene" uid="uid://cify3ag6e7dge" path="res://intro_jeu/perso_intro.tscn" id="3_o3s7r"]
+[ext_resource type="PackedScene" uid="uid://cf2v43s5xu6vt" path="res://objet_3d/intro_3d/maison/retro_vhs_tape_game_ready.glb" id="4_fmr50"]
+
+[sub_resource type="Animation" id="Animation_uvua2"]
+resource_name = "porte_ferme"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody3D/CanvasLayer2/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iviaf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CharacterBody3D/CanvasLayer2/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cpv4c"]
+_data = {
+"RESET": SubResource("Animation_iviaf"),
+"porte_ferme": SubResource("Animation_uvua2")
+}
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_esb8g"]
+size = Vector3(0.584534, 0.688965, 0.591309)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ahetk"]
+size = Vector3(2.55884, 5.39703, 0.705078)
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_rlmys")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0.379747, 1.85097, -1.60191)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "E"
+font_size = 900
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("1_2xlyf")]
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("3_o3s7r")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.65032, 1, -0.93494)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="CharacterBody3D"]
+
+[node name="ColorRect" type="ColorRect" parent="CharacterBody3D/CanvasLayer2"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1.0
+offset_right = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CharacterBody3D"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_cpv4c")
+}
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("4_fmr50")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.0330827, 0)
+
+[node name="Label3D" type="Label3D" parent="Sketchfab_Scene2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.46138, 10, -0.196)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "E"
+font_size = 900
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00796509, -0.155518, 0.026123)
+shape = SubResource("BoxShape3D_esb8g")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Area3D2" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0032959, 2.19852, -2.9053)
+shape = SubResource("BoxShape3D_ahetk")
+
+[connection signal="area_shape_entered" from="Area3D" to="." method="_on_area_3d_area_shape_entered"]
+[connection signal="area_shape_exited" from="Area3D" to="." method="_on_area_3d_area_shape_exited"]
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="area_shape_entered" from="Area3D2" to="." method="_on_area_3d_2_area_shape_entered"]
+[connection signal="area_shape_exited" from="Area3D2" to="." method="_on_area_3d_2_area_shape_exited"]

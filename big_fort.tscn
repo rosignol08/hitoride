@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://cysebmp2iu4do"]
+
+[ext_resource type="PackedScene" uid="uid://1ttq6cuseaa5" path="res://foret_bambou_grand.tscn" id="1_r62ee"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Node3D" parent="." instance=ExtResource("1_r62ee")]
+transform = Transform3D(0.95103, 0, -0.3091, 0, 1, 0, 0.3091, 0, 0.95103, -10.6198, 0, 11.0886)
+
+[node name="Node3D2" parent="." instance=ExtResource("1_r62ee")]
+transform = Transform3D(0.853178, 0, 0.52162, 0, 1, 0, -0.52162, 0, 0.853178, 48.1423, 0, -33.4694)
+
+[node name="Node3D3" parent="." instance=ExtResource("1_r62ee")]
+transform = Transform3D(0.946339, 0, -0.323174, 0, 1, 0, 0.323174, 0, 0.946339, 135.002, 0, 8.58905)
+
+[node name="Node3D4" parent="." instance=ExtResource("1_r62ee")]
+transform = Transform3D(0.980505, 0, -0.196494, 0, 1, 0, 0.196494, 0, 0.980505, 201.76, 0, 0)

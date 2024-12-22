@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmgfxos83buh7"]
+
+[ext_resource type="PackedScene" uid="uid://7lad3368ek6d" path="res://objet_3d/objets/mobilier/toilettes/toilet.glb" id="1_ma1il"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8pg8k"]
+size = Vector3(106.729, 106.372, 64.6834)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_ma1il")]
+
+[node name="pCylinder3" parent="Sketchfab_model/312371fe8f124f2399f5701f4c2ca03a_fbx/RootNode/toilet/group3" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="pCylinder3_lambert2_0" parent="Sketchfab_model/312371fe8f124f2399f5701f4c2ca03a_fbx/RootNode/toilet/group3/pCylinder3" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -52.8644, 52.6861, -47.1108)
+shape = SubResource("BoxShape3D_8pg8k")

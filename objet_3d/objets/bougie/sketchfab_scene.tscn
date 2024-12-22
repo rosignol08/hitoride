@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cawffaxhm2h3h"]
+
+[ext_resource type="PackedScene" uid="uid://ckq5c8ww301w3" path="res://objet_3d/objets/bougie/scene.gltf" id="1_jug1i"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_jug1i")]
+
+[node name="CandleLow_uvl" parent="Sketchfab_model/d7f09667470d48e0be64895e4b8fd22b_fbx/RootNode" index="0"]
+transform = Transform3D(100, 0, 0, 0, -1.62921e-05, 100, 0, -100, -1.62921e-05, 0, 0, 0)

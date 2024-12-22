@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3rodpkvinvyt"]
+
+[ext_resource type="PackedScene" uid="uid://cr47uw8ivauxd" path="res://objet_3d/objets/mobilier/lit_enfant/wooden_baby_crib.glb" id="1_lvpm1"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_m6gda"]
+points = PackedVector3Array(-0.681609, -0.6604, -0.783502, 0.706374, 0.190074, 0.019, 0.711511, -0.9398, 0.02197, -0.711375, -0.9398, 0.02197, -0.706239, 0.190074, 0.019, 0.695058, 0.181056, -0.7912, -0.694922, 0.181056, -0.7912, 0.681744, -0.6604, -0.783502, -0.725604, -0.95114, -0.0378968, 0.72574, -0.95114, -0.0378968)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_lvpm1")]
+
+[node name="Object_4" parent="Sketchfab_model/root/GLTF_SceneRootNode/Crib Frame_0" index="0"]
+transform = Transform3D(1, -6.42609e-38, 0, -6.42609e-38, 1, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Crib Frame_0/Object_4" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Crib Frame_0/Object_4/StaticBody3D" index="0"]
+transform = Transform3D(1, -6.42609e-38, 0, -6.42609e-38, 1, 0, 0, 0, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_m6gda")

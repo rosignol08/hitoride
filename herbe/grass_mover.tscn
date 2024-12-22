@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cxcgk3l8tvhbh"]
+
+[ext_resource type="Script" path="res://herbe/grass_mover.gd" id="1_42sq3"]
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_42sq3")

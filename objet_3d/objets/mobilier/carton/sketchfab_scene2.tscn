@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://b2kq1a7u1s14r"]
+
+[ext_resource type="PackedScene" uid="uid://bubt006o45our" path="res://objet_3d/objets/mobilier/carton/old_paper__cardboard_boxes.glb" id="1_3pja7"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j06l6"]
+points = PackedVector3Array(-0.394538, -1.40435, 0.0290103, 0.436962, 1.27583, 0.562212, 1.22901, 1.07746, 0.314793, 0.139865, -0.159378, 1.70034, -1.78499, 1.03625, 0, 0.795208, -0.922281, 0, -1.19614, -0.605217, 0.809811, 1.17939, -0.506172, 0.760327, 0.0902458, 0.335033, 1.74982, 1.22901, 0.681556, -0.0317724, -1.83995, 1.07746, 0.364098, -0.107612, -1.49635, 0.26531, -1.83995, 0.434078, -0.0317724, -0.997971, 1.27583, 0.562212, 0.412924, 1.17954, 1.11022e-16, 1.32825, -0.0608758, 0.760327, -0.00868306, -0.110263, 1.74982, -0.404398, -1.49635, 0.26531, -1.83995, 0.434078, 0.364098, 0.242287, 0.297294, 1.72206, -1.4363, -0.204233, 0.0103611, 0.684749, -0.803036, 0.760327, -0.9673, 1.17093, 0.00607338, 0.684749, -1.00113, 0.463245, 1.32825, -0.15965, 0.760327, 1.17749, 0.988581, 0, -1.49324, -0.208765, 0.364098, 1.02061, -0.29922, 0.00924599, -1.04759, -0.703991, 0.809811, -0.1182, -1.39735, 0.0336342, 0.0409364, 0.285375, 1.74982, -1.19614, -0.580553, 0.343155)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_3pja7")]
+transform = Transform3D(0.9, 0, 0, 0, 0.9, 0, 0, 0, 0.9, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/f216860e0d6042649bd1e2533119f3c3_obj_cleaner_materialmerger_gles/Object_2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/f216860e0d6042649bd1e2533119f3c3_obj_cleaner_materialmerger_gles/Object_2/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_j06l6")

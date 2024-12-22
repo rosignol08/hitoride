@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://chtuwrfk702b3"]
+
+[ext_resource type="PackedScene" uid="uid://ca4eg8a641yce" path="res://lumiere_bouge.tscn" id="1_o86ok"]
+[ext_resource type="Script" path="res://camera.gd" id="2_i7a6f"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_c6pwg"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_t2v3p"]
+top_radius = 0.055
+bottom_radius = 0.055
+height = 0.705
+
+[node name="Node3D" type="Node3D"]
+
+[node name="OmniLight3D" parent="." instance=ExtResource("1_o86ok")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.427741, -0.0176702)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("PlaneMesh_c6pwg")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0307828, -0.999526, 0, 0.999526, 0.0307828, 0, -0.0176426, -0.572861)
+mesh = SubResource("PlaneMesh_c6pwg")
+
+[node name="MeshInstance3D3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.58, 0, 0.147979, -0.0165566)
+mesh = SubResource("CylinderMesh_t2v3p")
+
+[node name="FreeLookCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.274664, 0.96154, 0, -0.96154, 0.274664, 0, 1.13117, 0.508)
+script = ExtResource("2_i7a6f")

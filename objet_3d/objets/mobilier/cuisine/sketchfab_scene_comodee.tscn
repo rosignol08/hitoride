@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d282gqvtus330"]
+
+[ext_resource type="PackedScene" uid="uid://fwt53iqutmh" path="res://objet_3d/objets/mobilier/cuisine/old_kitchen_cabinets.glb" id="1_mvoe4"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_uqe8a"]
+points = PackedVector3Array(4.773, -5.38766, -5.44199, -3.9125, -7.56701, -7.66535, -3.60892, -7.51561, -8.20112, -4.05669, 10.5911, -0.281765, 4.624, 10.0584, -8.12083, 4.88283, -7.86469, -0.281765, 4.88195, 10.5911, -0.281765, -4.05669, -7.86469, -0.281765, -3.6089, 10.242, -8.2011, 4.624, -7.33033, -8.12008, -3.9125, 10.2934, -7.66535)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_mvoe4")]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/48c8f064a7884f62a515d461944b928d_fbx/RootNode/Counter_low/Counter_low_woodbase_0" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/48c8f064a7884f62a515d461944b928d_fbx/RootNode/Counter_low/Counter_low_woodbase_0/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 1.42109e-14, 0, -1.42109e-14, 1, 0, 0, 0)
+shape = SubResource("ConvexPolygonShape3D_uqe8a")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://ggyhs2qh3sft"]
+
+[ext_resource type="ArrayMesh" uid="uid://bjg8d55ismwot" path="res://objet_3d/maison/porte_dossier/porte.obj" id="1_htbrb"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="Porte" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1190.07, -11.4096, 1645.11)
+mesh = ExtResource("1_htbrb")

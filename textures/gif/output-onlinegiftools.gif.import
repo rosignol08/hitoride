@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://cpgr8gjofmivf"
+path="res://.godot/imported/output-onlinegiftools.gif-d10a520627d01087df7b5b8a16b6933e.tres"
+
+[deps]
+
+source_file="res://textures/gif/output-onlinegiftools.gif"
+dest_files=["res://.godot/imported/output-onlinegiftools.gif-d10a520627d01087df7b5b8a16b6933e.tres"]
+
+[params]
+
+frames_per_second=30

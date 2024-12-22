@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bhjr7u4acekeo"]
+
+[ext_resource type="PackedScene" uid="uid://pwu6lkjpkhn2" path="res://objet_3d/objets/mobilier/lavabo/old_historical_sink.glb" id="1_ggxs1"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gdf83"]
+points = PackedVector3Array(17.0436, 26.0031, 53.5121, 22.0656, 4.26091, -50.1498, 18.7161, -27.5073, 53.5121, -21.4132, -7.43804, -3.33168, -3.01475, 29.3489, -3.33168, 8.68061, -4.09221, -50.1498, 18.7161, 29.3489, -3.33168, -19.7406, 14.2984, -3.33168, -8.03251, -27.5073, -3.33168, 18.7161, -29.1802, -3.33168, 18.7161, 27.676, 51.8359, 5.33543, 2.588, -48.4945, 22.0656, -4.09221, -51.8364, 17.0436, -27.5073, 53.5121, -18.068, -17.4698, -3.33168, 5.33543, 0.915082, 38.4578, -3.01475, -29.1802, -3.33168, -8.03251, 27.676, -3.33168, -21.4132, 7.60675, -3.33168, 15.371, 4.26091, -51.8364, 17.0436, -4.09221, -53.5126, -14.7229, -22.4886, -3.33168, -18.068, 17.6385, -3.33168, 5.33543, -2.41929, -48.4945, 22.0656, -2.41929, -45.1422, 8.68061, 4.26091, -50.1498, 17.0436, 27.676, 51.8359, -19.7406, -14.1297, -3.33168, -13.2519, -2.17458, -18.0918, 17.3763, 22.5637, -17.0367, -13.0503, -24.1615, -3.33168, -7.23041, 18.9788, -15.1063)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_ggxs1")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/sink_low_QXEL_obj_cleaner_materialmerger_gles/Object_2" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/sink_low_QXEL_obj_cleaner_materialmerger_gles/Object_2/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_gdf83")

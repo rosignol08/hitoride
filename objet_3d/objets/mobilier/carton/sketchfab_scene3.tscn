@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://x5ct01aw4afp"]
+
+[ext_resource type="PackedScene" uid="uid://yh0xy8a8ygkr" path="res://objet_3d/objets/mobilier/carton/set_of_cardboard_boxes.glb" id="1_e6qe2"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1hw0u"]
+size = Vector3(1.15582, 0.567261, 0.827515)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_e6qe2")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." index="1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0951923, 0.277771, 0.256714)
+shape = SubResource("BoxShape3D_1hw0u")

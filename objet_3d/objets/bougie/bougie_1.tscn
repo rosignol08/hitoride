@@ -1,0 +1,105 @@
+[gd_scene load_steps=13 format=3 uid="uid://csfw764nuny0w"]
+
+[ext_resource type="Script" path="res://objet_3d/objets/bougie/bougie_1.gd" id="1_fbvf4"]
+[ext_resource type="PackedScene" uid="uid://cawffaxhm2h3h" path="res://objet_3d/objets/bougie/sketchfab_scene.tscn" id="1_fg8iw"]
+[ext_resource type="PackedScene" uid="uid://ca4eg8a641yce" path="res://lumiere_bouge.tscn" id="2_uch1t"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ef202"]
+height = 1.55225
+radius = 0.102433
+
+[sub_resource type="Gradient" id="Gradient_cj70f"]
+offsets = PackedFloat32Array(0, 0.991935, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.523564, 0.275795, 0.0841993, 1, 0.954734, 0.50292, 0.15354, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_icgfp"]
+gradient = SubResource("Gradient_cj70f")
+
+[sub_resource type="Curve" id="Curve_1clo2"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.302632, 0.56044), -0.569431, -0.569431, 0, 0, Vector2(1, 0.406593), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_l1ulk"]
+curve = SubResource("Curve_1clo2")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bcbcg"]
+angle_max = 360.0
+direction = Vector3(0, 1, 0)
+spread = 0.0
+initial_velocity_min = 0.5
+initial_velocity_max = 1.5
+angular_velocity_max = 40.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = 1.0
+linear_accel_max = 5.0
+scale_min = 0.01
+scale_max = 0.1
+scale_curve = SubResource("CurveTexture_l1ulk")
+color_initial_ramp = SubResource("GradientTexture1D_icgfp")
+hue_variation_max = 0.4
+turbulence_enabled = true
+turbulence_noise_strength = 5.0
+turbulence_noise_scale = 1.705
+turbulence_noise_speed_random = 0.1
+turbulence_influence_min = 0.0
+turbulence_influence_max = 0.01
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gf17y"]
+transparency = 1
+blend_mode = 1
+shading_mode = 0
+vertex_color_use_as_albedo = true
+albedo_color = Color(0.482768, 0.23224, 2.40654e-07, 1)
+billboard_mode = 3
+billboard_keep_scale = true
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="QuadMesh" id="QuadMesh_kjk5x"]
+material = SubResource("StandardMaterial3D_gf17y")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_gdid0"]
+radius = 0.766628
+height = 1.57206
+
+[node name="Node3D" type="Node3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+script = ExtResource("1_fbvf4")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.36833, 0)
+shape = SubResource("CylinderShape3D_ef202")
+
+[node name="Sketchfab_Scene2" parent="." instance=ExtResource("1_fg8iw")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 1.21595, 0)
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00804436, 1.8312, 0.00473201)
+amount = 50
+lifetime = 0.2
+randomness = 1.0
+draw_order = 3
+process_material = SubResource("ParticleProcessMaterial_bcbcg")
+draw_pass_1 = SubResource("QuadMesh_kjk5x")
+
+[node name="OmniLight3D" parent="." instance=ExtResource("2_uch1t")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00486434, 2.01671, 0.000432849)
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.46911, 0)
+shape = SubResource("CapsuleShape3D_gdid0")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0108509, 2.50243, -0.0377606)
+billboard = 1
+outline_modulate = Color(0, 0, 0, 0)
+text = "E"
+font_size = 352
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

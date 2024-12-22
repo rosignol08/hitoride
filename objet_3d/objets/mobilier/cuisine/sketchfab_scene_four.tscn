@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://do071jmqk0rgk"]
+
+[ext_resource type="PackedScene" uid="uid://den4lea366rfk" path="res://objet_3d/objets/mobilier/cuisine/big_old_rusted_oven.glb" id="1_vjn5u"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5dr3r"]
+points = PackedVector3Array(-0.653633, 1.31554, 1.12732, -0.76306, -0.420617, -0.827874, -0.757273, 1.01584, -0.819261, 0.5441, 0.951518, -0.690426, 0.496718, -0.424928, 1.139, -0.763004, -0.420538, 1.13439, 0.496721, -0.424933, -0.832403, 0.489754, 1.0169, 1.12757, -0.653633, 1.47276, -0.820715, -0.757516, 1.4417, 1.06527, 0.459383, 1.0169, -0.820968, 0.550818, -0.200884, 0.33566, -0.653633, 1.47276, 1.09582, 0.5441, 0.951518, 0.906593, -0.757516, 1.4417, -0.789148, 0.540303, -0.189394, -0.3559, -0.757273, 1.01584, 1.12586, 0.5021, 0.706668, 1.09923)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_vjn5u")]
+
+[node name="Big oven_002_31" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="0"]
+transform = Transform3D(8.42937e-08, 0, 1, 0, 1, 0, -1, 0, 8.42937e-08, -0.146179, 0.416549, -0.0762751)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Big oven_002_31/Object_4" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Big oven_002_31/Object_4/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_5dr3r")

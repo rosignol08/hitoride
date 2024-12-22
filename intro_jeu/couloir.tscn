@@ -1,0 +1,89 @@
+[gd_scene load_steps=6 format=3 uid="uid://cjkp4gumt5c1k"]
+
+[ext_resource type="PackedScene" path="res://objet_3d/intro_3d/maison/infinite_corridor.glb" id="1_lmr72"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gf8jh"]
+size = Vector3(28.0946, 4.74866, 0.332031)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rb8qj"]
+size = Vector3(1, 5.2641, 6.60107)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_4eowq"]
+points = PackedVector3Array(275.44, -0.518401, 3.56371, -5.7384, -0.518401, -3.7261, 275.44, -0.518401, -3.7261, -5.7384, -0.518401, 3.56371)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_spsma"]
+data = PackedVector3Array(-1, 0, 1, 1, 0, -1, 1, 0, 1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_lmr72")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_4" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_4/StaticBody3D" index="0"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.43062, 2.37952, -3.0337)
+shape = SubResource("BoxShape3D_gf8jh")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_4/StaticBody3D" index="1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.08202, 2.42244, 2.92585)
+shape = SubResource("BoxShape3D_gf8jh")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_4/StaticBody3D" index="2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.5634, 2.13205, 0.168701)
+shape = SubResource("BoxShape3D_rb8qj")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_5" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Cube_1/Object_5/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_4eowq")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Plane_2/Object_9" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Plane_2/Object_9/StaticBody3D" index="0"]
+shape = SubResource("ConcavePolygonShape3D_spsma")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="." index="1"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 7.9988, 6.94002, 0)
+light_energy = 2.5
+spot_range = 10.2513
+spot_angle = 38.8221
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="." index="2"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 17.7445, 6.93677, -0.00232649)
+light_energy = 2.5
+spot_range = 10.2513
+spot_angle = 38.8221
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="." index="3"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 29.4555, 6.94002, 0)
+light_energy = 2.5
+spot_range = 10.2513
+spot_angle = 38.8221
+
+[node name="SpotLight3D4" type="SpotLight3D" parent="." index="4"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 40.0113, 6.94002, 0)
+light_energy = 2.5
+spot_range = 10.2513
+spot_angle = 38.8221
+
+[node name="SpotLight3D5" type="SpotLight3D" parent="." index="5"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 52.2044, 6.94002, 0)
+light_energy = 2.5
+spot_range = 10.2513
+spot_angle = 38.8221
+
+[node name="SpotLight3D6" type="SpotLight3D" parent="." index="6"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 61.95, 6.93677, -0.00232649)
+light_energy = 2.5
+spot_range = 10.2513
+spot_angle = 38.8221
+
+[node name="SpotLight3D7" type="SpotLight3D" parent="." index="7"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 73.661, 6.94002, 0)
+light_energy = 2.5
+spot_range = 10.2513
+spot_angle = 38.8221
+
+[node name="SpotLight3D8" type="SpotLight3D" parent="." index="8"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 84.2169, 6.94002, 0)
+light_energy = 2.5
+spot_range = 10.2513
+spot_angle = 38.8221

@@ -1,0 +1,73 @@
+[gd_scene load_steps=2 format=3 uid="uid://dmjjqn8cj4jet"]
+
+[ext_resource type="PackedScene" uid="uid://b57c62pwj8whx" path="res://objet_3d/intro_3d/maison/japanese_street_at_night.glb" id="1_v0f7b"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_v0f7b")]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Build_B08_38/Object_80" index="0"]
+omni_range = 2.45692
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Build_C07_53/Object_110" index="0"]
+omni_range = 1.0997
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/Build_D07_66/Object_136" index="0"]
+light_color = Color(0.8575, 0.55, 1, 1)
+light_volumetric_fog_energy = 2.0
+omni_range = 1.54657
+
+[node name="Build_G01_91" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="91"]
+visible = false
+
+[node name="Build_G06_100" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="100"]
+visible = false
+
+[node name="Build_G03_101" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="101"]
+visible = false
+
+[node name="Build_G05_102" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="102"]
+visible = false
+
+[node name="Object_208" parent="Sketchfab_model/root/GLTF_SceneRootNode/Build_G05_102" index="0"]
+layers = 2
+
+[node name="Build_G04_103" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="103"]
+visible = false
+
+[node name="Build_G07_104" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="104"]
+visible = false
+
+[node name="Build_H01_105" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="105"]
+visible = false
+
+[node name="Build_H09_111" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="111"]
+visible = false
+
+[node name="Build_H04_112" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="112"]
+visible = false
+
+[node name="Build_H07_115" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="115"]
+visible = false
+
+[node name="Build_H06_116" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="116"]
+visible = false
+
+[node name="Build_H05_117" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="117"]
+visible = false
+
+[node name="Build_H03_118" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="118"]
+visible = false
+
+[node name="Build_H10_119" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="119"]
+visible = false
+
+[node name="light_150" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="141"]
+visible = false
+
+[node name="BG_151" parent="Sketchfab_model/root/GLTF_SceneRootNode" index="142"]
+visible = false
+
+[node name="SpotLight3D" type="SpotLight3D" parent="Sketchfab_model/root/GLTF_SceneRootNode/pole_04_156/Object_298" index="0"]
+transform = Transform3D(1, 0, 0, 0, -0.201574, 0.979473, 0, -0.979473, -0.201574, 0, 0, 0)
+light_volumetric_fog_energy = 3.0
+spot_range = 5.72444
+spot_angle = 27.722

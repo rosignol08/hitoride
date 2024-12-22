@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cr2vty4tsv8e1"]
+
+[ext_resource type="PackedScene" uid="uid://ddt6y7s7345im" path="res://objet_3d/objets/mobilier/biblio1/bookshelf.glb" id="1_wtkbw"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_scbup"]
+points = PackedVector3Array(50.4648, 64.2474, 13.2276, -27.4207, -41.8125, -10.0017, -28.8711, -43.7876, 11.5372, -28.8711, 64.2474, -12.0931, 49.4426, -42.3957, -10.1201, -28.8711, 64.2474, 13.2276, 50.4648, 64.2474, -12.0931, 50.4648, -43.7876, 11.5372, -28.8711, 62.5554, -12.0931, 50.4648, 62.5554, 13.2276, 50.4648, 62.5554, -12.0931, -28.8711, 62.5554, 13.2276)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_wtkbw")]
+transform = Transform3D(0.05, 0, 0, 0, 0.05, 0, 0, 0, 0.05, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/c1fcf6921c644155be5389c979a114a2_fbx/RootNode/Base/Object_4" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/c1fcf6921c644155be5389c979a114a2_fbx/RootNode/Base/Object_4/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_scbup")

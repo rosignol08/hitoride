@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b736i7hb85qk6"]
+
+[ext_resource type="PackedScene" uid="uid://oyd2rb8bhok2" path="res://objet_3d/objets/mobilier/chaise/wooden_chair.glb" id="1_mx6xv"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3f6w6"]
+points = PackedVector3Array(-0.241802, 0.190814, -0.00725079, 0.26578, 0.199869, 1.04202, 0.275902, 0.174143, 1.06165, -0.275251, 0.174143, 1.06165, 0.225782, -0.26, 0.510668, 0.226083, 0.240149, 0.0288818, -0.209728, -0.242317, 0.0292639, 0.20974, -0.241584, 0.0307775, -0.225131, -0.26, 0.510668, -0.226379, 0.241161, 0.99616, -0.225598, 0.240326, 0.0285165, 0.242453, 0.190814, -0.00725079, 0.226872, 0.240992, 0.995834, -0.275251, 0.157422, 0.927934, 0.275902, 0.157422, 0.927934, -0.275251, 0.207535, 0.944674, 0.275902, 0.207535, 0.944674, -0.265281, 0.199984, 1.04232)
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_mx6xv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sketchfab_model/SM_Wood_Chair_01a_fbx/RootNode/Wood_Chair_01a_006/Wood_Chair_01a_006__0" index="0"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/SM_Wood_Chair_01a_fbx/RootNode/Wood_Chair_01a_006/Wood_Chair_01a_006__0/StaticBody3D" index="0"]
+shape = SubResource("ConvexPolygonShape3D_3f6w6")

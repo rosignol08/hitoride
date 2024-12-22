@@ -1,0 +1,6 @@
+res://intro_jeu/introduction.tscn
+res://intro_jeu/couloir.tscn
+res://porte_face.tscn
+res://objet_3d/maison/porte_dossier/porte.tscn
+res://intro_jeu/couloir_scene.gd
+res://intro_jeu/couloir_scene.tscn

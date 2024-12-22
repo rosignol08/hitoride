@@ -1,0 +1,41 @@
+[gd_scene load_steps=9 format=3 uid="uid://havakrwcv2fa"]
+
+[ext_resource type="Texture2D" uid="uid://de3bgwf7mewj4" path="res://textures/Tatami004_1K-JPG/Tatami004_1K-JPG_Color.jpg" id="1_nkfub"]
+[ext_resource type="Texture2D" uid="uid://cmdq73h6b7yku" path="res://textures/Tatami004_1K-JPG/Tatami004_1K-JPG_AmbientOcclusion.jpg" id="2_rj07o"]
+[ext_resource type="Texture2D" uid="uid://cp5nhwopcr1me" path="res://textures/Tatami004_1K-JPG/Tatami004_1K-JPG_Displacement.jpg" id="3_1gi3n"]
+[ext_resource type="Texture2D" uid="uid://dtb0r8xnnv6mq" path="res://textures/Tatami004_1K-JPG/Tatami004_1K-JPG_NormalGL.jpg" id="4_cw053"]
+[ext_resource type="Texture2D" uid="uid://78g8y2s0inu0" path="res://textures/Tatami004_1K-JPG/Tatami004_1K-JPG_Roughness.jpg" id="5_livfb"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_66yfk"]
+albedo_texture = ExtResource("1_nkfub")
+roughness_texture = ExtResource("5_livfb")
+normal_enabled = true
+normal_scale = 5.24
+normal_texture = ExtResource("4_cw053")
+ao_enabled = true
+ao_light_affect = 1.0
+ao_texture = ExtResource("2_rj07o")
+heightmap_scale = 1.361
+heightmap_texture = ExtResource("3_1gi3n")
+subsurf_scatter_texture = ExtResource("3_1gi3n")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_5shw2"]
+material = SubResource("StandardMaterial3D_66yfk")
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pthj7"]
+data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.478614, 0.0227779, -0.374175)
+
+[node name="GridMap" type="GridMap" parent="."]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="GridMap"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="GridMap/StaticBody3D"]
+mesh = SubResource("PlaneMesh_5shw2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GridMap/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_pthj7")

@@ -1,0 +1,54 @@
+[gd_scene load_steps=6 format=3 uid="uid://rnfxd7a0u8lo"]
+
+[ext_resource type="Texture2D" uid="uid://cy2p88rociela" path="res://camera_interf/point.png" id="1_uotho"]
+[ext_resource type="Script" path="res://camera_interf/interaface_camera.gd" id="1_uscr0"]
+[ext_resource type="Texture2D" uid="uid://cuq2qg58u352c" path="res://camera_interf/cadre.png" id="2_y8dh7"]
+[ext_resource type="Texture2D" uid="uid://b3ns2i6rgi4cd" path="res://camera_interf/batterie-vide.png" id="4_ijrbw"]
+[ext_resource type="Texture2D" uid="uid://n8l7qyjd07uy" path="res://camera_interf/progre_batterie.png" id="5_ftmou"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_uscr0")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+offset_left = 121.0
+offset_top = 65.0
+offset_right = 213.0
+offset_bottom = 134.0
+theme_override_font_sizes/font_size = 50
+text = "REC"
+uppercase = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(100, 100)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_uotho")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(640, 360)
+texture = ExtResource("2_y8dh7")
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -213.0
+offset_top = 80.0
+offset_right = -84.9995
+offset_bottom = 150.0
+grow_horizontal = 0
+rotation = -3.14159
+scale = Vector2(0.7, 0.7)
+pivot_offset = Vector2(64.0378, 36.1637)
+max_value = 5.0
+value = 5.0
+texture_under = ExtResource("4_ijrbw")
+texture_over = ExtResource("4_ijrbw")
+texture_progress = ExtResource("5_ftmou")

@@ -1,0 +1,15 @@
+[remap]
+
+importer="import_gif_to_sprite_frames"
+type="SpriteFrames"
+uid="uid://5odbm0sjpfxy"
+path="res://.godot/imported/walking.gif-e8bc24104015740d53ea9819967a9e4f.tres"
+
+[deps]
+
+source_file="res://textures/gif/walking.gif"
+dest_files=["res://.godot/imported/walking.gif-e8bc24104015740d53ea9819967a9e4f.tres"]
+
+[params]
+
+frames_per_second=30

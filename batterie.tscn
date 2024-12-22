@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnf3nnymskhl7"]
+
+[ext_resource type="Script" path="res://batterie.gd" id="1_hynd2"]
+[ext_resource type="PackedScene" uid="uid://by6q6an5o6rxn" path="res://objet_3d/objets/batterie/scene.gltf" id="2_srdad"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_iwkn3"]
+radius = 0.530606
+
+[node name="Node3D" type="Node3D"]
+script = ExtResource("1_hynd2")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_iwkn3")
+
+[node name="Sketchfab_Scene" parent="." instance=ExtResource("2_srdad")]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0)
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
