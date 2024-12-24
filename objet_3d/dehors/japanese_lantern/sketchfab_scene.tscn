@@ -1,0 +1,91 @@
+[gd_scene load_steps=2 format=3 uid="uid://ca24bynwyxx8c"]
+
+[ext_resource type="PackedScene" uid="uid://mu7wfajswj5x" path="res://objet_3d/dehors/japanese_lantern/scene.gltf" id="1_ckc5l"]
+
+[node name="Sketchfab_Scene" instance=ExtResource("1_ckc5l")]
+transform = Transform3D(0.001, 0, 0, 0, 0.001, 0, 0, 0, 0.001, 0, 0, 0)
+
+[node name="defaultMaterial" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface1" index="0"]
+layers = 2
+
+[node name="defaultMaterial2" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface2" index="0"]
+layers = 2
+cast_shadow = 0
+
+[node name="defaultMaterial3" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface3" index="0"]
+layers = 2
+
+[node name="defaultMaterial4" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface4" index="0"]
+layers = 2
+
+[node name="defaultMaterial5" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface5" index="0"]
+layers = 2
+
+[node name="defaultMaterial6" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface6" index="0"]
+layers = 2
+
+[node name="defaultMaterial7" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface7" index="0"]
+layers = 2
+
+[node name="defaultMaterial8" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface8" index="0"]
+layers = 2
+
+[node name="defaultMaterial9" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface9" index="0"]
+layers = 2
+
+[node name="defaultMaterial10" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface10" index="0"]
+layers = 2
+
+[node name="defaultMaterial11" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface11" index="0"]
+layers = 2
+
+[node name="defaultMaterial12" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface12" index="0"]
+layers = 2
+
+[node name="defaultMaterial13" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface13" index="0"]
+layers = 2
+
+[node name="defaultMaterial14" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface14" index="0"]
+layers = 2
+
+[node name="defaultMaterial15" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface15" index="0"]
+layers = 2
+
+[node name="defaultMaterial16" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface16" index="0"]
+layers = 2
+
+[node name="defaultMaterial17" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface17" index="0"]
+layers = 2
+
+[node name="defaultMaterial18" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface18" index="0"]
+layers = 2
+
+[node name="defaultMaterial19" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface19" index="0"]
+layers = 2
+
+[node name="defaultMaterial20" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface20" index="0"]
+layers = 2
+
+[node name="defaultMaterial21" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface21" index="0"]
+layers = 2
+
+[node name="defaultMaterial22" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface22" index="0"]
+layers = 2
+
+[node name="defaultMaterial23" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface23" index="0"]
+layers = 2
+
+[node name="defaultMaterial24" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface24" index="0"]
+layers = 2
+
+[node name="defaultMaterial25" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface25" index="0"]
+layers = 2
+
+[node name="defaultMaterial26" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface26" index="0"]
+layers = 2
+
+[node name="defaultMaterial27" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface27" index="0"]
+layers = 2
+
+[node name="defaultMaterial28" parent="Sketchfab_model/Collada visual scene group/pCube14/polySurface28" index="0"]
+layers = 2

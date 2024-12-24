@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://dcnaoj0fns40h"]
 
-[ext_resource type="PackedScene" uid="uid://dljjr4pcd5jeo" path="res://objet_3d/dehors/japanese_lantern/scene.gltf" id="1_yaqih"]
+[ext_resource type="PackedScene" uid="uid://ca24bynwyxx8c" path="res://objet_3d/dehors/japanese_lantern/sketchfab_scene.tscn" id="1_j4mmi"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_sepa6"]
 size = Vector3(0.472412, 0.887939, 0.473267)
@@ -9,7 +9,7 @@ size = Vector3(0.472412, 0.887939, 0.473267)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
 
-[node name="Sketchfab_Scene" parent="StaticBody3D" instance=ExtResource("1_yaqih")]
+[node name="Sketchfab_Scene" parent="StaticBody3D" instance=ExtResource("1_j4mmi")]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0162354, 0.444214, 0.0462036)
@@ -19,5 +19,7 @@ shape = SubResource("BoxShape3D_sepa6")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0180512, 0.682976, 0.0492308)
 light_color = Color(1, 1, 0.392157, 1)
 light_energy = 2.0
+light_cull_mask = 4294967293
 shadow_enabled = true
-omni_range = 3.09536
+omni_range = 5.63926
+omni_attenuation = 0.420448

@@ -11,7 +11,9 @@ func _ready():
 func _process(_delta):
 	pass
 
-
 func _on_area_3d_area_entered(_area):
 	player.ramasse = true
+	$AudioStreamPlayer3D.play()
+
+func _on_audio_stream_player_3d_finished():
 	queue_free()

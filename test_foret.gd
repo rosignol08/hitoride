@@ -18,15 +18,16 @@ func _ready():
 	
 	var bush2_scene = load("res://objet_3d/dehors/arbre/bush2/buisson2.fbx")
 	
+	var lanternes = load("res://lumiere_lanterne.tscn")
 	
-	# Ajouter 10000 arbres avec des positions et rotations aléatoires
-	for i in range(12000):
+	# Ajouter 5000 arbres avec des positions et rotations aléatoires
+	for i in range(5000):
 		# Instancier l'arbre
 		var tree_instance = tree_scene.instantiate()
 		# Générer des coordonnées aléatoires
-		var random_x = randf_range(-1000, -820)
+		var random_x = randf_range(-125, 125)
 		var random_y = randf_range(-3, 0)
-		var random_z = randf_range(-520, 480)
+		var random_z = randf_range(-125, 125)
 		
 		# Définir la position de l'arbre
 		tree_instance.transform.origin = Vector3(random_x, random_y, random_z)
@@ -39,13 +40,13 @@ func _ready():
 		# Ajouter l'arbre à la scène actuelle
 		add_child(tree_instance)
 	#pour les buisson1
-	for i in range(3000):
+	for i in range(1000):
 		# Instancier l'arbre
 		var bush_instance = bush_scene.instantiate()
 		# Générer des coordonnées aléatoires
-		var random_x2 = randf_range(-1000, -820)
+		var random_x2 = randf_range(-125, 125)
 		#var random_y2 = randf_range(0, 0)
-		var random_z2 = randf_range(-520, 480)
+		var random_z2 = randf_range(-125, 125)
 		
 		# Définir la position du buisson
 		bush_instance.transform.origin = Vector3(random_x2, 0, random_z2)
@@ -57,14 +58,14 @@ func _ready():
 		# Ajouter le buisson à la scène actuelle
 		add_child(bush_instance)
 	#pour les buisson2
-	for i in range(3000):
+	for i in range(1000):
 		# Instancier l'arbre
 		var bush_instance2 = bush2_scene.instantiate()
 		
 		# Générer des coordonnées aléatoires
-		var random_x2 = randf_range(-1000, -820)
+		var random_x2 = randf_range(-125, 125)
 		#var random_y2 = randf_range(0, 0)
-		var random_z2 = randf_range(-520, 480)
+		var random_z2 = randf_range(-125, 125)
 		
 		# Définir la position du buisson
 		bush_instance2.transform.origin = Vector3(random_x2, 0, random_z2)
@@ -75,15 +76,33 @@ func _ready():
 		
 		# Ajouter le buisson à la scène actuelle
 		add_child(bush_instance2)
+	for i in range(100):
+		# Instancier l'arbre
+		var lanternes_instance = lanternes.instantiate()
+		
+		# Générer des coordonnées aléatoires
+		var random_x2 = randf_range(-125, 125)
+		#var random_y2 = randf_range(0, 0)
+		var random_z2 = randf_range(-125, 125)
+		
+		# Définir la position du buisson
+		lanternes_instance.transform.origin = Vector3(random_x2, 0, random_z2)
+		
+		# Générer une rotation aléatoire sur l'axe Y
+		var random_rotation_y = randf_range(0, TAU)
+		lanternes_instance.rotate_y(random_rotation_y)
+		
+		# Ajouter le buisson à la scène actuelle
+		add_child(lanternes_instance)
 
 # Appelé à chaque frame. 'delta' est le temps écoulé depuis la frame précédente.
 func _process(_delta):
-	if Input.is_action_just_pressed("ui_up"):
-		$CharacterBody3D2.active = true
-		print("activé")
-	if Input.is_action_just_pressed("ui_down"):
-		$CharacterBody3D2.active = false
-		print("désactivé")
+	#if Input.is_action_just_pressed("ui_up"):
+	#	$CharacterBody3D2.active = true
+	#	print("activé")
+	#if Input.is_action_just_pressed("ui_down"):
+	#	$CharacterBody3D2.active = false
+	#	print("désactivé")
 	#print("le volume est:", $AudioStreamPlayer.volume_db)
 	if can_generate:
 		if mechant_instance == null:

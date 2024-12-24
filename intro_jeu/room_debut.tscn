@@ -14,9 +14,8 @@ size = Vector3(4.38632, 2.49303, 1.5675)
 [sub_resource type="BoxShape3D" id="BoxShape3D_d8orp"]
 size = Vector3(1.58917, 3.46152, 0.178833)
 
-[sub_resource type="Animation" id="Animation_6bw0m"]
-resource_name = "rapproche_tele"
-length = 2.0
+[sub_resource type="Animation" id="Animation_n5wnv"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -24,10 +23,10 @@ tracks/0/path = NodePath("Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector3(-1.439, 1.99, -3.025), Vector3(-1.4, 1.79, 1.595)]
+"values": [Vector3(-1.439, 1.99, 0.855)]
 }
 
 [sub_resource type="Animation" id="Animation_poibs"]
@@ -45,8 +44,9 @@ tracks/0/keys = {
 "values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_n5wnv"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_6bw0m"]
+resource_name = "rapproche_tele"
+length = 2.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -54,10 +54,10 @@ tracks/0/path = NodePath("Camera3D:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(-1.439, 1.99, 0.855)]
+"values": [Vector3(-1.439, 1.99, -3.025), Vector3(-1.4, 1.79, 1.595)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_84swo"]

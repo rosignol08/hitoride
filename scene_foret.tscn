@@ -1,10 +1,42 @@
-[gd_scene load_steps=8 format=3 uid="uid://dfuf4iiswtnda"]
+[gd_scene load_steps=24 format=3 uid="uid://dfuf4iiswtnda"]
 
 [ext_resource type="Texture2D" uid="uid://c60l4fyf7c8mq" path="res://textures/herbe/Grass_005_BaseColor.jpg" id="1_2ifnd"]
+[ext_resource type="Shader" path="res://ciel.gdshader" id="1_n0h70"]
+[ext_resource type="Script" path="res://test_foret.gd" id="1_ysaxg"]
 [ext_resource type="Texture2D" uid="uid://kwfp5lo1gct8" path="res://textures/herbe/Grass_005_AmbientOcclusion.jpg" id="2_e08ky"]
 [ext_resource type="Texture2D" uid="uid://bpmr11l3lutvd" path="res://textures/herbe/Grass_005_Height.png" id="3_30x6k"]
 [ext_resource type="Texture2D" uid="uid://buu26wv4rx7hi" path="res://textures/herbe/Grass_005_Normal.jpg" id="4_dvafv"]
 [ext_resource type="Texture2D" uid="uid://cxkxbba5x1j8m" path="res://textures/herbe/Grass_005_Roughness.jpg" id="5_twtx6"]
+[ext_resource type="Shader" path="res://nuages.gdshader" id="7_bhfvs"]
+[ext_resource type="PackedScene" uid="uid://ch00kxsi6fdv0" path="res://perso.tscn" id="9_sdf0y"]
+[ext_resource type="PackedScene" uid="uid://bnf3nnymskhl7" path="res://batterie.tscn" id="10_a583u"]
+[ext_resource type="Script" path="res://fps_afficheur.gd" id="10_umaim"]
+[ext_resource type="AudioStream" uid="uid://c2on7u4f17obl" path="res://song/foret_musique_ambiance.wav" id="11_2wvm6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_uan2p"]
+shader = ExtResource("1_n0h70")
+shader_parameter/morning_color = Color(0.947275, 0.603966, 0.726949, 1)
+shader_parameter/noon_color = Color(0.5, 0.7, 1, 1)
+shader_parameter/evening_color = Color(1, 0.5, 0.3, 1)
+shader_parameter/night_color = Color(0.05, 0.05, 0.2, 1)
+shader_parameter/time_of_day = 0.0
+shader_parameter/time_scroll = false
+shader_parameter/time_speed = 1.0
+
+[sub_resource type="Sky" id="Sky_8fs8p"]
+sky_material = SubResource("ShaderMaterial_uan2p")
+
+[sub_resource type="Environment" id="Environment_f1x1v"]
+background_mode = 2
+sky = SubResource("Sky_8fs8p")
+ambient_light_source = 3
+reflected_light_source = 2
+glow_enabled = true
+fog_enabled = true
+fog_light_color = Color(0, 0, 0, 1)
+fog_density = 0.1473
+volumetric_fog_enabled = true
+volumetric_fog_albedo = Color(0, 0, 0, 1)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3p1nx"]
 albedo_texture = ExtResource("1_2ifnd")
@@ -20,9 +52,117 @@ uv1_scale = Vector3(30, 30, 30)
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_jva0b"]
 material = SubResource("StandardMaterial3D_3p1nx")
-size = Vector2(150, 150)
+size = Vector2(250, 250)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_avxn7"]
+data = PackedVector3Array(125, 0, 125, -125, 0, 125, 125, 0, -125, -125, 0, 125, -125, 0, -125, 125, 0, -125)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_5phqj"]
+noise_type = 3
+frequency = 0.2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0jjhv"]
+width = 64
+height = 64
+noise = SubResource("FastNoiseLite_5phqj")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ddj5l"]
+render_priority = 0
+shader = ExtResource("7_bhfvs")
+shader_parameter/cloud_speed = 1.0
+shader_parameter/cloud_density = 0.511
+shader_parameter/cloud_color = Color(1, 1, 1, 1)
+shader_parameter/sky_light = Color(0.8, 0.8, 1, 1)
+shader_parameter/light_intensity = 0.0
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_0jjhv")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_bs3it"]
+material = SubResource("ShaderMaterial_ddj5l")
+size = Vector2(300, 300)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_78wd6"]
+size = Vector3(164.082, 15.6804, 1)
 
 [node name="Node3D" type="Node3D"]
+script = ExtResource("1_ysaxg")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.504633, -0.682435, 0.528798, 0, 0.612507, 0.790465, -0.863334, -0.398895, 0.309091, 0, 9.31113, 0)
+light_color = Color(0.0463277, 0.384372, 0.488911, 1)
+light_energy = 0.4
+light_volumetric_fog_energy = 4.622
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_f1x1v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("PlaneMesh_jva0b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_avxn7")
+
+[node name="nuages" type="MeshInstance3D" parent="."]
+transform = Transform3D(-1, 8.74228e-08, 0, -8.74228e-08, -1, 0, 0, 0, 1, 0, 47.8242, 0)
+visible = false
+mesh = SubResource("PlaneMesh_bs3it")
+
+[node name="CharacterBody3D" parent="." instance=ExtResource("9_sdf0y")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.101204, 0.767, 0.151665)
+
+[node name="Label" type="Label" parent="CharacterBody3D"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -304.5
+offset_top = -153.0
+offset_right = 304.5
+offset_bottom = 153.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+script = ExtResource("10_umaim")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("11_2wvm6")
+volume_db = 9.695
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Timer2" type="Timer" parent="."]
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.392238, 83.1027)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152252, 7.34018, 0)
+shape = SubResource("BoxShape3D_78wd6")
+
+[node name="Node3D" parent="." instance=ExtResource("10_a583u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.717778, 0, 69.022)
+
+[node name="Node3D2" parent="." instance=ExtResource("10_a583u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.717778, 0, 46.1289)
+
+[node name="Node3D3" parent="." instance=ExtResource("10_a583u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.717778, 0, 55.6044)
+
+[node name="Node3D4" parent="." instance=ExtResource("10_a583u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.717778, 0, 34.2738)
+
+[node name="Node3D5" parent="." instance=ExtResource("10_a583u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.717778, 0, 22.0779)
+
+[node name="Node3D6" parent="." instance=ExtResource("10_a583u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.717778, 0, 10.3195)
+
+[node name="Node3D7" parent="." instance=ExtResource("10_a583u")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.717778, 0, 76.1446)
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

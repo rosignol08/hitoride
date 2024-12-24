@@ -2,9 +2,9 @@
 
 [ext_resource type="Shader" path="res://compress.gdshader" id="1_n4p7v"]
 [ext_resource type="Script" path="res://ecrant_transition.gd" id="1_wex2t"]
-[ext_resource type="Texture2D" uid="uid://cx6f4etp5qw3" path="res://textures/bleu_fonce.png" id="2_j01fn"]
-[ext_resource type="FontFile" uid="uid://dg5ugftyst7sq" path="res://ecrit/RealVhsFontRegular-WyV0z.ttf" id="3_ljwgs"]
-[ext_resource type="AudioStream" uid="uid://db6p81ak2sy6h" path="res://song/whs_insert.mp3" id="5_vp3m4"]
+[ext_resource type="Texture2D" uid="uid://biigmjp3tv01b" path="res://textures/bleu_fonce.png" id="2_j01fn"]
+[ext_resource type="FontFile" uid="uid://cnpvv0tkma811" path="res://ecrit/RealVhsFontRegular-WyV0z.ttf" id="3_ljwgs"]
+[ext_resource type="AudioStream" uid="uid://xripge1pkeel" path="res://song/whs_insert.mp3" id="5_vp3m4"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_eabt7"]
 frequency = 0.4758
