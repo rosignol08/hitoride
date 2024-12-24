@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://dfuf4iiswtnda"]
+[gd_scene load_steps=24 format=3 uid="uid://bkanbpkwts114"]
 
 [ext_resource type="Texture2D" uid="uid://c60l4fyf7c8mq" path="res://textures/herbe/Grass_005_BaseColor.jpg" id="1_2ifnd"]
 [ext_resource type="Shader" path="res://ciel.gdshader" id="1_n0h70"]

@@ -18,8 +18,7 @@ shape = SubResource("BoxShape3D_sepa6")
 [node name="OmniLight3D" type="OmniLight3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0180512, 0.682976, 0.0492308)
 light_color = Color(1, 1, 0.392157, 1)
-light_energy = 2.0
 light_cull_mask = 4294967293
 shadow_enabled = true
-omni_range = 5.63926
+omni_range = 3.74485
 omni_attenuation = 0.420448
