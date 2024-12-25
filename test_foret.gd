@@ -76,7 +76,7 @@ func _ready():
 		
 		# Ajouter le buisson à la scène actuelle
 		add_child(bush_instance2)
-	for i in range(100):
+	for i in range(00):
 		# Instancier l'arbre
 		var lanternes_instance = lanternes.instantiate()
 		

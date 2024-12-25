@@ -71,7 +71,7 @@ func _process(delta):
 			$Timer.paused = true
 		elif allume == false and elec == true:# touche : T
 			#print("allumage")
-			$Camera3D2/SpotLight3D.light_energy = 1.0
+			$Camera3D2/SpotLight3D.light_energy = 3.0
 			allume = true
 			$Timer.paused = false
 	if Input.is_action_just_pressed("R"):

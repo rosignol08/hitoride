@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bkanbpkwts114"]
+[gd_scene load_steps=26 format=3 uid="uid://bkanbpkwts114"]
 
 [ext_resource type="Texture2D" uid="uid://c60l4fyf7c8mq" path="res://textures/herbe/Grass_005_BaseColor.jpg" id="1_2ifnd"]
 [ext_resource type="Shader" path="res://ciel.gdshader" id="1_n0h70"]
@@ -11,7 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://ch00kxsi6fdv0" path="res://perso.tscn" id="9_sdf0y"]
 [ext_resource type="PackedScene" uid="uid://bnf3nnymskhl7" path="res://batterie.tscn" id="10_a583u"]
 [ext_resource type="Script" path="res://fps_afficheur.gd" id="10_umaim"]
-[ext_resource type="AudioStream" uid="uid://c2on7u4f17obl" path="res://song/foret_musique_ambiance.wav" id="11_2wvm6"]
+[ext_resource type="AudioStream" uid="uid://dybqju8owp8c7" path="res://song/Nighttime_Forest_Sounds.mp3" id="11_8cy2u"]
+[ext_resource type="PackedScene" uid="uid://cbamtxajsclbt" path="res://lucioles.tscn" id="13_nfwpy"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uan2p"]
 shader = ExtResource("1_n0h70")
@@ -83,6 +84,9 @@ size = Vector2(300, 300)
 [sub_resource type="BoxShape3D" id="BoxShape3D_78wd6"]
 size = Vector3(164.082, 15.6804, 1)
 
+[sub_resource type="BoxMesh" id="BoxMesh_mvf11"]
+size = Vector3(36.335, 15.715, 1)
+
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_ysaxg")
 
@@ -128,7 +132,7 @@ size_flags_horizontal = 4
 script = ExtResource("10_umaim")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("11_2wvm6")
+stream = ExtResource("11_8cy2u")
 volume_db = 9.695
 
 [node name="Timer" type="Timer" parent="."]
@@ -141,6 +145,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.392238, 83.1027)
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.152252, 7.34018, 0)
 shape = SubResource("BoxShape3D_78wd6")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+mesh = SubResource("BoxMesh_mvf11")
 
 [node name="Node3D" parent="." instance=ExtResource("10_a583u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.717778, 0, 69.022)
@@ -162,6 +169,48 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.717778, 0, 10.3195)
 
 [node name="Node3D7" parent="." instance=ExtResource("10_a583u")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.717778, 0, 76.1446)
+
+[node name="Node3D8" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.651741, 1.23934, 11.3828)
+
+[node name="Node3D9" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.61794, 1.23934, 17.8076)
+
+[node name="Node3D10" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.22597, 1.23934, 22.9213)
+
+[node name="Node3D11" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -2.25971, 1.23934, 27.0878)
+
+[node name="Node3D12" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -3.30449, 1.23934, 31.8906)
+
+[node name="Node3D13" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0.410174, 1.23934, 35.9306)
+
+[node name="Node3D14" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 3.06792, 1.23934, 41.6203)
+
+[node name="Node3D15" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 2.06602, 1.23934, 46.1528)
+
+[node name="Node3D16" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 4.25075, 1.23934, 51.6918)
+
+[node name="Node3D17" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 6.26514, 1.23934, 59.2695)
+
+[node name="Node3D18" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -0.547106, 1.23934, 65.3477)
+
+[node name="Node3D19" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -4.03933, 1.23934, 70.2835)
+
+[node name="Node3D20" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.60344, 1.23934, 77.0955)
+
+[node name="Node3D21" parent="." instance=ExtResource("13_nfwpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.55214, 1.23934, 59.5015)
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
