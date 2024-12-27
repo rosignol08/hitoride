@@ -97,12 +97,12 @@ func _ready():
 
 # Appelé à chaque frame. 'delta' est le temps écoulé depuis la frame précédente.
 func _process(_delta):
-	#if Input.is_action_just_pressed("ui_up"):
-	#	$CharacterBody3D2.active = true
-	#	print("activé")
-	#if Input.is_action_just_pressed("ui_down"):
-	#	$CharacterBody3D2.active = false
-	#	print("désactivé")
+	if Input.is_action_just_pressed("ui_up"):
+		$CharacterBody3D2.active = true
+		print("activé")
+	if Input.is_action_just_pressed("ui_down"):
+		$CharacterBody3D2.active = false
+		print("désactivé")
 	#print("le volume est:", $AudioStreamPlayer.volume_db)
 	if can_generate:
 		if mechant_instance == null:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bkanbpkwts114"]
+[gd_scene load_steps=27 format=3 uid="uid://dv6mpopl0j5n0"]
 
 [ext_resource type="Texture2D" uid="uid://c60l4fyf7c8mq" path="res://textures/herbe/Grass_005_BaseColor.jpg" id="1_2ifnd"]
 [ext_resource type="Shader" path="res://ciel.gdshader" id="1_n0h70"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" path="res://fps_afficheur.gd" id="10_umaim"]
 [ext_resource type="AudioStream" uid="uid://dybqju8owp8c7" path="res://song/Nighttime_Forest_Sounds.mp3" id="11_8cy2u"]
 [ext_resource type="PackedScene" uid="uid://cbamtxajsclbt" path="res://lucioles.tscn" id="13_nfwpy"]
+[ext_resource type="PackedScene" uid="uid://ctty723pnop3t" path="res://mane_anime.tscn" id="14_hnhol"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uan2p"]
 shader = ExtResource("1_n0h70")
@@ -28,7 +29,6 @@ shader_parameter/time_speed = 1.0
 sky_material = SubResource("ShaderMaterial_uan2p")
 
 [sub_resource type="Environment" id="Environment_f1x1v"]
-background_mode = 2
 sky = SubResource("Sky_8fs8p")
 ambient_light_source = 3
 reflected_light_source = 2
@@ -211,6 +211,9 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, -5.60344, 1.23934, 77.0
 
 [node name="Node3D21" parent="." instance=ExtResource("13_nfwpy")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 1.55214, 1.23934, 59.5015)
+
+[node name="CharacterBody3D2" parent="." instance=ExtResource("14_hnhol")]
+transform = Transform3D(1.705, 0, 0, 0, 1.705, 0, 0, 0, 1.705, -1.1843, 0, 11.5746)
 
 [connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

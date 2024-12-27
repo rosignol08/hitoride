@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://ci1j3bxdpjmer"]
 
-[ext_resource type="SpriteFrames" uid="uid://vqusb1rru5at" path="res://textures/gif/output-onlinegiftools.gif" id="1_dycms"]
+[ext_resource type="SpriteFrames" uid="uid://cpgr8gjofmivf" path="res://textures/gif/output-onlinegiftools.gif" id="1_dycms"]
 [ext_resource type="Script" path="res://mechant_foret.gd" id="1_wo4xi"]
-[ext_resource type="AudioStream" uid="uid://c4padrwlfylt1" path="res://song/Grass Footsteps.wav" id="3_eskdd"]
-[ext_resource type="AudioStream" uid="uid://guubseng4he0" path="res://song/respiration.wav" id="4_x0sjn"]
+[ext_resource type="AudioStream" uid="uid://c5txodvicrarf" path="res://song/Grass Footsteps.wav" id="3_eskdd"]
+[ext_resource type="AudioStream" uid="uid://c3blpi6rute4j" path="res://song/respiration.wav" id="4_x0sjn"]
 
 [node name="Node3D" type="Node3D"]
 script = ExtResource("1_wo4xi")
@@ -13,8 +13,8 @@ billboard = 1
 shaded = true
 sprite_frames = ExtResource("1_dycms")
 animation = &"gif"
-frame = 3
-frame_progress = 0.591539
+frame = 14
+frame_progress = 0.763063
 
 [node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
 stream = ExtResource("3_eskdd")
